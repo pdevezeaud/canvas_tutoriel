@@ -5,13 +5,15 @@ let x = 100;
 let y = 100;
 let radius = 45;
 
+let downPressed = false;
+
+
 function drawGame(){
-    console.log("draw");
     requestAnimationFrame(drawGame);
     clearScreen();
+    inputs();
     drawGreenBlob();
 }
-
 
 //requestAnimationFrame(function)
 //setInterval(drawGame,1000)
@@ -34,4 +36,25 @@ function drawGreenBlob() {
     ctx.closePath();
 }
 
-//drawGame(); 1856   https://www.youtube.com/watch?v=UUFPEgRKwf4&t=60s
+function inputs() {
+    if(downPressed){
+        y= y + 10;
+    }
+}
+
+
+
+
+document.body.addEventListener("keydown", keydown);
+document.body.addEventListener("keyup", keyup);
+
+function keyDown(event) {
+    //down
+    if(event.keyCode == 40) {
+        downPressed = true;
+    }
+}
+
+drawGame(); 
+
+//1856   https://www.youtube.com/watch?v=UUFPEgRKwf4&t=60s
