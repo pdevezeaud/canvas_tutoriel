@@ -12,19 +12,23 @@ let leftPressed = false;
 let rightPressed = false;
 
 
+//function principal 
 function drawGame(){
     requestAnimationFrame(drawGame);
     clearScreen();
-    inputs();
     drawGreenBlob();
+    inputs();
+    boundryCheck();
 }
 
 //requestAnimationFrame(function)
 //setInterval(drawGame,1000)
 
+function boundryCheck(){
+  
+}
 
-
-//game loop
+//remet image de fond en black(rectangle)
 function clearScreen(){
     //colorisation du context en black
     ctx.fillStyle = "black";
@@ -33,6 +37,7 @@ function clearScreen(){
 }
 
 
+//ecoute appui touche
 document.body.addEventListener("keydown", keyDown);
 document.body.addEventListener("keyup", keyUp);
 
@@ -82,6 +87,7 @@ function keyUp(event) {
 }
 
 
+//creation ball
 function drawGreenBlob() {
     ctx.fillStyle = "green";
     ctx.beginPath();
