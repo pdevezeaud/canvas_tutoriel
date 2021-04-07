@@ -5,6 +5,7 @@ let x = 100;
 let y = 100;
 let radius = 45;
 let speed = 10;
+
 let upPressed = false;
 let downPressed = false;
 let leftPressed = false;
@@ -39,51 +40,46 @@ document.body.addEventListener("keyup", keyUp);
 
 function keyDown(event) {
     //up
-    if(event.keyCode == 38){
-        downPressed = true;
+    if (event.keyCode == 38) {
+      upPressed = true;
     }
-    
+  
     //down
-    if(event.keyCode == 40) {
-        downPressed = true;
+    if (event.keyCode == 40) {
+      downPressed = true;
     }
-
     //left
-    if(event.keycode == 37){
-        downPressed = true;
+    if (event.keyCode == 37) {
+      leftPressed = true;
     }
-
+  
     //right
-    if(event.keycode == 39){
-        downPressed = true;
+    if (event.keyCode == 39) {
+      rightPressed = true;
     }
-}
+  }
 
 
 function keyUp(event) {
-    //up
-    if(event.keyCode == 38){
-        upPressed = false;
-    }
-    
-    //down
-    if(event.keyCode == 40) {
-        upPressed = false;
-    }
+  //up
+  if (event.keyCode == 38) {
+    upPressed = false;
+  }
 
-    //left
-    if(event.keycode == 37){
-        upPressed = false;
-    }
+  //down
+  if (event.keyCode == 40) {
+    downPressed = false;
+  }
+  //left
+  if (event.keyCode == 37) {
+    leftPressed = false;
+  }
 
-    //right
-    if(event.keycode == 39){
-        upPressed = false;
-    }
-
+  //right
+  if (event.keyCode == 39) {
+    rightPressed = false;
+  }
 }
-
-
 
 
 function drawGreenBlob() {
@@ -95,22 +91,19 @@ function drawGreenBlob() {
 }
 
 function inputs() {
-    if(upPressed == true) {
-        y = y - speed;
+    if (upPressed) {
+      y = y - speed;
     }
-    if(downPressed == true){
-        y= y + speed;
+    if (downPressed) {
+      y = y + speed;
     }
-    if(leftPressed == true) {
-        x = x - speed;
+    if (leftPressed) {
+      x = x - speed;
     }
-    if(rightPressed == true){
-        x = x + speed;
+    if (rightPressed) {
+      x = x + speed;
     }
-}
-
-
-
+  }
 
 
 
