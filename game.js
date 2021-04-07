@@ -28,6 +28,31 @@ function clearScreen(){
 
 }
 
+
+document.body.addEventListener("keydown", keyDown);
+document.body.addEventListener("keyup", keyUp);
+
+
+
+function keyDown(event) {
+    //down
+    if(event.keyCode == 40) {
+        downPressed = true;
+    }
+}
+
+
+function keyUp(event) {
+    //up
+    if(event.keyCode == 38) {
+        downPressed = false;
+    }
+
+}
+
+
+
+
 function drawGreenBlob() {
     ctx.fillStyle = "green";
     ctx.beginPath();
@@ -37,7 +62,7 @@ function drawGreenBlob() {
 }
 
 function inputs() {
-    if(downPressed){
+    if(downPressed == true){
         y= y + 10;
     }
 }
@@ -45,15 +70,7 @@ function inputs() {
 
 
 
-document.body.addEventListener("keydown", keydown);
-document.body.addEventListener("keyup", keyup);
 
-function keyDown(event) {
-    //down
-    if(event.keyCode == 40) {
-        downPressed = true;
-    }
-}
 
 drawGame(); 
 
